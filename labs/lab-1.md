@@ -21,6 +21,8 @@ cd Hdip             (changes directory to Hdip)
 rm -rf Hdip         (deletes Hdip and recursively deletes any files and directories withing Hdip)
 who                 (shows the current active sessions one for the main GUI of my laptop and one for bash)
 uptime              (shows information on the current main session of your computer)
+mv oldfilename newfilename  (rename the file)
+wc -l               (word counter, -l means count lines not words)
 
 ```
 ## Captured Output

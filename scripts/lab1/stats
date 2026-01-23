@@ -1,0 +1,8 @@
+#!/bin/bash
+# script to print the number of users, datetime, and the working directory in which the script was called.
+# author: Adam McCarthy
+# version: 20/01/2026
+echo "Welcome to the program. 
+It is `date`. The number of users logged in is `who | wc -l`. 
+The current working directory is:
+`pwd`"

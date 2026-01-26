@@ -1,0 +1,19 @@
+#!/bin/bash
+# Author: A McCarthy
+# Program Description:
+# Test out the results of different uses of " and ' with the echo command
+
+echo Hello	World $USER
+echo "Hello	World"
+echo "Hello World"
+echo Hello * World
+echo "Hello * World"
+echo "Hello" World
+echo Hello "	" World
+echo Hello '	' World
+echo "Hello "*" World"
+echo `hello` world
+echo 'hello' world
+a=2000
+echo '$a'
+echo "$a"

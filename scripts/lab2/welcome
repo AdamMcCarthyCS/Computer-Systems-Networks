@@ -1,0 +1,7 @@
+#!/bin/bash
+# Author: A McCarthy
+# Program Description:
+# The program welcomes the user
+
+echo Great to see you $USER on $(date)
+

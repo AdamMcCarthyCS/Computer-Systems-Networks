@@ -1,0 +1,18 @@
+#!/bin/bash
+# Author: A McCarthy
+# Program Description:
+# Prints a greeting, the number of users, date, and current working directory,
+# cpu architecture, op-mode, and byte ordering scheme
+
+
+echo "Hi $USER and welcome to computer systems"
+echo "The current date and time is: $(date)"
+echo "The number of users on this system is: $(who | wc -l)"
+echo "Your current working directory is: $(pwd)"
+echo "System details:"
+# use grep to include the line about the systems processor architecture
+lscpu | grep Architecture
+# use grep to include the operating mode of the system
+lscpu | grep op-mode
+# use grep to include information about byte ordering in memory
+lscpu | grep "Byte Order"

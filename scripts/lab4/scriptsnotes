@@ -1,0 +1,145 @@
+ SPECIAL SCRIPT VARIABLES
+ $#                                      (the number of passed arguments)
+ $@                                      (all parameters but not $0)
+ $*                                      (all the arguments including $0)
+ 
+ $N                                      (the Nth variable passed with the command in the shell)
+ $0                                      (the name of the script)
+ $?                                      (the error code of the commmand just run, 0 - okay, 1-256 - error)
+ exit N                                  (returns an exit code of N to the caller (shell?)
+
+IF COMMAND
+
+if someconditional; then
+  # do this if someconditional has exitcode 0
+fi
+
+-----------
+
+if someconditional; then
+  # do this if someconditional has exitcode 0
+else
+  # do this for exit code other than 0
+fi
+
+ELSE-IF VERSION
+if someconditional; then
+  # do something here
+elif someconditional; then
+  # do something else here
+else
+  # otherwise do something here
+fi
+
+THE CASE VERSION
+
+case "$VARIABLE" in
+first_option|second_option)
+  # do something
+  ;;
+third_option)
+  # do some other thing
+  ;;
+*)
+  # do something for all other things
+esac
+
+THE TEST COMMAND FOR COMPARISONS IN CONDITIONALS 
+man test                                                    (see all possible comparison operators on man page)
+TEST VERSION			            SHORT VERSION
+test -f /SomeDir/somefile	    [ -f /SomeDir/somefile ]	    (test a file exists)
+test ! -f /SomeDir/somefile	  [ ! -f /SomeDir/somefile ]	  (test if a file does not exist)
+test -d /SomeDir              [ -d /SomeDir ]               (test if a directory exists)
+test -x file                  [ -x file ]                   (test if the file is executable)
+test num1 -eq num2            [ num1 -eq num2 ]             (test if two numbers are equal)
+test num1 -ne num2            [ num1 -ne num2 ]             (test if two numbers are NOT equal)
+test stringa = stringb        [ stringa = stringb ]         (test if two strings are equal)
+test stringa != stringb       [ stringa != stringb ]        (test if two strings are not equal)
+AND
+test stmtA -a stmtB           [ stmtA -a stmtB]             (test if statement A and Statement B are true, short)
+OR
+test stmtA -o stmtB           [ stmtA -o stmtB ]            (test if statement A or B is true, short circuit wise)
+
+LOOPS
+
+FOR LOOP
+----------------------------------------------
+----------------------------------------------
+
+# Using a list to iterate over
+----------------------------------------------
+LISTVARIABLE="Some List Of Things"
+
+for NAME in LISTVARIABLE; do
+  # Do something with NAME
+done
+
+# Using a file glob (iterate over current dir)
+----------------------------------------------
+for FILE in *; do
+  # Do something to each file
+done
+
+# Using a series
+----------------------------------------------
+for VALUE in {1..n}; do
+  # Do something with VALUE
+done
+
+# Using a series in reverse
+----------------------------------------------
+for VALUE in {10..1}; do
+  # Do something with VALUE
+done
+
+# Using a series with steps
+----------------------------------------------
+for VALUE in {1..n..2}; do
+  # Do something with VALUE
+done
+
+# continue 
+----------------------------------------------
+The continue statement tells bash to stop this iteration of a loop and go to
+the next one
+
+# break 
+----------------------------------------------
+The break statement tells bash to stop the loop straight away
+
+WHILE LOOP 
+----------------------------------------------
+----------------------------------------------
+
+while [ some-test-until-condition-becomes-false ]; do
+  # Do something here
+  # Update condition
+done
+
+UNTIL LOOP
+----------------------------------------------
+
+until [ some-test-until-condition-becomes-true ]; do
+  # Do something here
+  # Update condition
+done
+
+SELECT LOOP
+----------------------------------------------
+----------------------------------------------
+prints a menu for the list passed
+
+MENU_CHOICES='item1 item2 item3 item4 Quit'
+
+PS3='Enter a choice: "
+
+select ITEM in $MENU_CHOICES; do
+  if [ %ITEM == 'Quit']; then
+    break
+  fi
+  # Do something with item
+done
+
+echo "some exit message"
+
+  

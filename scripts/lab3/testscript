@@ -1,0 +1,7 @@
+#!/bin/bash
+# author: Adam McCarthy
+# program description: This program is just to test out the command line arguments with a script
+
+echo "Hi $USER, you are in the program $0" 
+echo "This is argument 1: $1"
+echo "This is argument 2: $2"

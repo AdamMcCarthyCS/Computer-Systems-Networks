@@ -1,0 +1,40 @@
+VIM:                                                                            
+go to line #:                :#                                                            
+start of line:                ^                                                             
+end of line:                  $                                                               
+forward word:                 w                                                               
+backward word:                b                                                             
+delete line:                  dd                                                              
+undo                          u                                                                     
+redo                          ctrl + r                                                              
+last location                 ctrl + o                                                      
+delete to start of line       d^ (inclusive)                                            
+delete after cursor           d$ (inclusive)                                          
+find next search term         /searchterm
+next search term              n
+previous search term          shift + n
+replace with a char           r->char                                                     
+append in next character        a                                                   
+insert mode after end of line   A                                               
+new line above (uppercase)  O                                                   
+New line below (lowercase)  o   
+
+Other commands:
+delete inside {}      ci{
+delete inside ()      ci(
+delete character      x
+end of page           G
+top of page           gg
+visual mode           v
+visual block          ctrl + v
+run a command         :!
+next buffer           bn
+delete buffer         bd
+list all buffers      :ls
+yank line             yy
+paste                 p
+
+To learn:
+change entire word        ciw
+change word from cursor   cw 
+change to end of line     c$

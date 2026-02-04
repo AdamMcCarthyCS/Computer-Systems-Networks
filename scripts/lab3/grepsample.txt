@@ -1,0 +1,3 @@
+The first line has two of the search terms.
+Our second line has none there.
+The third line has only one.

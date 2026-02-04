@@ -1,0 +1,100 @@
+# Lab XX – <Lab Title>
+
+## Objectives
+- 
+- 
+
+## Environment
+- OS:
+- Machine / VM:
+- Network context (if relevant):
+
+## Procedure
+Commands executed during this lab:
+cut -d " " -f3,5 < employee.txt	(show the third and fifth columns of data delimited by a space from a file)
+grep bash /etc/passwd	(find all lines containing the word bash in the file /etc/passwd)
+grep -n bash /etc/passwd 	(find all lines and include line numbers)
+grep -v nologin /etc/passwd	(find all lines not containing "nologin" in /etc/passwd) v = invert
+grep -i BaSh /etc/passwd	(find all lines containing BaSh and ignore case match)
+grep -wi the grepsample.txt	(find all lines that contain the word the, not contained somewhere-alone, and ignore case)
+man -s 7 ascii			(man page for ascii characters)
+man -s # searchterm		(search section # for searchterm)8.1 Introduction
+ls /bin/*[0-9]*			(list any files in /bin which contain a number)
+ls /bin | grep -v '[0-9]'	(show all lines that dont contain a number)
+ls -d DirNam*			(shows only directories, useful if there is only one to avoid showing files within it rather than directory contents)
+cp -r SampleDir OtherDir	(copies a directory, -r must be included or wont run)
+
+
+REGEX:
+letter	(matches itself)
+^	(if at start of regex expression it must match at the start of line)
+$	(if at end of regex expression it must match at end of line)
+.	(any single character)
+*	(the previous character repeated 0 or more times)
+[ ]	(A list "," or range "-" or characters to match one character)
+[^ ]	(A list "," or range "-" of characters to ignore when matching the character) ^ at beginning
+
+EXAMPLES FROM A FILE WHICH IS A COLUMN OF WORDS:
+grep '^....$' regex-practice.txt	(four letter words)
+grep '.*ter' regex-practice.txt	 	(words containing 0 or more letters then "ter" somewhere in them)
+grep '^[^a]' somefile			(words not containing "a" at the beginning)
+grep '^h.....$' regex-practice.txt	(six letter words starting with h)
+ascii -d		(print the decimal ascii table)
+
+REGEX EXTENDED: grep -E	OR egrep
+?	(matches previous character 0 or 1 time)
++	(matches previous character 1 or more times)
+|	(logical or)
+( )	(grouping letters, alternation expression)
+{n}	(range specifier - repeat n times)
+EXAMPLES:
+grep -E '.*j+.*' regex-practice.txt	(find all words containing the letter j at least once)
+grep -E 'colou?r'			(find the word colour but with both UK and US spelling)
+grep -E 'tango|zulu' regex-practice.txt	(find the word tango or zulu)
+ls -l | grep -E '(..a){2}' 		(find all lines with ..a..a pattern in them)
+grep -E '.*(.e){2}.*' home*		(example of grep * (zero or more) and shell globbing home* (followed by any group of chars)
+grep -E 'a{3,4}' as.txt			(show all lines with aaa or aaaa in them somewhere)	
+grep -E 'a{3,}' as.txt			(show all lines with three or more a's together aaa, aaaa, aaaaa... etc)
+ls -la | grep -oE '(exa)|(mma)'		(only show the part of the file that contains the match, not the whole line)
+ls -la | grep -EA 3 '(exa)|(mma)'	(show 3 lines of context after the term was found, maybe if you wanted to see some code around a word?)
+
+
+ARCHIVE AND COMPRESSION: 
+gzip lab*				(compress all files starting with "lab" with any suffix)
+gzip -r someDir				(compress all files in a directory from outside it, r=recursive)
+gzip -l lab-3.txt.gz			(show info on the compression before/after)
+TAR (Create Mode)
+tar -cf mytarfile.tar file*		(collect all files starting with "file" into a tarball called mytarfile)
+tar -czf mytarfile.tar.gz file*		(collect all files into a tarball and then zip them with gzip to compress)
+tar -czf mytarfile.tgz file*		(alternate convention for zipped tarball suffix)
+gzip -l mytarfile.tgz			(show info on compression of tarball)
+(List Mode)
+tar -tzf sometarball.tar.gz 		(list the contents of the tarball recursively)
+(Extract Mode)
+tar -xf sometarball.tgz			(extracts all files from the tarball decompressed)
+tar -xzf sometarball.tar.gz		(extracts all files from the tarball and lists what was extracted)
+ZIP FILES:
+zip -r zipfile.zip somedir		(zip a directory recursively)
+zip zipfile.zip	file*			(zip all files starting in file)
+unzip zipfile.zip			(unzip zipfile.zip)
+unzip -l zipfile.zip			(unzip zipfile.zip and list what was unzipped)
+echo -n something			(print the single word string something and move to the next line)
+## Captured Output
+- outputs/labXX/<file1>.txt
+- outputs/labXX/<file2>.txt
+
+## Observations
+- 
+
+## Issues / Errors
+- 
+
+## Notes
+SPECIAL SCRIPT VARIABLES
+$N					(the Nth variable passed with the command in the shell)
+$0					(the name of the script)
+$?					(the error code of the commmand just run, 0 - okay, 1-256 - error)
+exit N					(returns an exit code of N to the caller (shell?)
+
+## Conclusion
+-

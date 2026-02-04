@@ -1,0 +1,10 @@
+300 Frank Manager Sales $5000
+400 Caroline Developer Technology $5500
+100 Mary SysAdmin Technology $7000
+200 Roseann Manager Marketing $9500
+500 Eamonn DBA Technology $7000
+600 Colm SysAdamin Technology $4500
+700 Adam Engineer Developer $12000
+666 Katherine Dev Tech $6000
+999 catherine Dev Tech $4500
+There are no $ currency only Y

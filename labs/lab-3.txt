@@ -1,0 +1,118 @@
+# Lab XX – <Lab Title>
+
+## Objectives
+- 
+- 
+
+## Environment
+- OS:
+- Machine / VM:
+- Network context (if relevant):
+
+## Procedure
+Commands executed during this lab:
+ls -lS          (long list directory files sorting by size)
+ls -lt          (long list directory files sorting by time modified)
+ls -lR          (long list directory files recursively listing all files contained in sub directories)
+ls -lh          (long list directory files with sizes human readable)
+ls ???          (list all files that have 3 character names) 
+man -k memory | less    (makes the long output into a scrollable page)
+(in less) -> f / b        (scroll down a page / scroll up a page)
+sort -k#,# file	(sort a file on the #th column only)
+sort < file | echo	(sort a file before outputing the contents)  
+cat fileexits > somefile 2>&1	(redirect the std output and std error both to somefile)
+cat fileisfake >> somefile 2>&1 (redirect a file that will fail to be appended to somefile)
+cat fileexists &> somefile	(more streamlined way of writing first above)
+cat fileisfake &>> somefile 	(more streamlined way of writing second (append) above)
+cat testfile > outputfile 2> error.txt	(save the results of the command to a file, if error save to error file
+cat fakefile 2> /dev/null	(send all errors to /dev/null bitbucket to be destroyed)
+echo /etc/*.???		*(list all the files in the etc directory that end with 3 letters)*
+echo /etc/[a-d]*	*	(print all the files in /etc/ that start with the letters a,b,c or d)
+echo /opt/[!a-d]*	(print all files that do not start with a, b, c, or d)
+find . -name "image*"	**	(find all files name image(something) in the current . directory)
+cp /etc/hosts /tmp	(copy the hosts file to the tmp folder)
+cp -v etc/hosts /tmp    (copy with confirmation message (verbose))
+cp -v etc/hosts /tmp
+tree -a			(include hidden .somthing files in tree)
+head -5 /etc/sysctl.conf	(print the first five lines of a file)
+tail -5 /etc/sysctl.conf	(print the last five lines of a file)
+ls -la | cut -c1-11,43-		(show only the columns containing char 1-11 & 50 onwards, works for ls and tabular data)
+cut -d " " -f3,5 < employee.txt	(show the third and fifth columns of data delimited by a space from a file)
+grep bash /etc/passwd	(find all lines containing the word bash in the file /etc/passwd)
+grep -n bash /etc/passwd 	(find all lines and include line numbers)
+grep -v nologin /etc/passwd	(find all lines not containing "nologin" in /etc/passwd) v = invert
+grep -i BaSh /etc/passwd	(find all lines containing BaSh and ignore case match)
+grep -wi the grepsample.txt	(find all lines that contain the word the, not contained somewhere-alone, and ignore case)
+man -s 7 ascii			(man page for ascii characters)
+man -s # searchterm		(search section # for searchterm)8.1 Introduction
+ls /bin/*[0-9]*			(list any files in /bin which contain a number)
+ls /bin | grep -v '[0-9]'	(show all lines that dont contain a number)
+ls -d DirNam*			(shows only directories, useful if there is only one to avoid showing files within it rather than directory contents)
+cp -r SampleDir OtherDir	(copies a directory, -r must be included or wont run)
+ls -la; echo 'Hello World!'	(run two separate commands on the same line)
+
+REGEX:
+letter	(matches itself)
+^	(if at start of regex expression it must match at the start of line)
+replace with a char r->char
+append in next character		a
+insert mode after end of line		A
+New line above (uppercase)	O
+New line below (lowercase)	o
+
+OTHER:
+ls -lS          (long list directory files sorting by size)
+ls -lt          (long list directory files sorting by time modified)
+ls -lR          (long list directory files recursively listing all files contained in sub directories)
+ls -lh          (long list directory files with sizes human readable)
+ls ???          (list all files that have 3 character names) 
+man -k memory | less    (makes the long output into a scrollable page)
+(in less) -> f / b        (scroll down a page / scroll up a page)
+sort -k#,# file	(sort a file on the #th column only)
+sort < file | echo	(sort a file before outputing the contents)  
+cat fileexits > somefile 2>&1	(redirect the std output and std error both to somefile)
+cat fileisfake >> somefile 2>&1 (redirect a file that will fail to be appended to somefile)
+cat fileexists &> somefile	(more streamlined way of writing first above)
+cat fileisfake &>> somefile 	(more streamlined way of writing second (append) above)
+cat testfile > outputfile 2> error.txt	(save the results of the command to a file, if error save to error file
+cat fakefile 2> /dev/null	(send all errors to /dev/null bitbucket to be destroyed)
+echo /etc/*.???		*(list all the files in the etc directory that end with 3 letters)*
+echo /etc/[a-d]*	*	(print all the files in /etc/ that start with the letters a,b,c or d)
+echo /opt/[!a-d]*	(print all files that do not start with a, b, c, or d)
+find . -name "image*"	**	(find all files name image(something) in the current . directory)
+cp /etc/hosts /tmp	(copy the hosts file to the tmp folder)
+cp -v etc/hosts /tmp    (copy with confirmation message (verbose))
+cp -v etc/hosts /tmp
+tree -a			(include hidden .somthing files in tree)
+head -5 /etc/sysctl.conf	(print the first five lines of a file)
+tail -5 /etc/sysctl.conf	(print the last five lines of a file)
+ls -la | cut -c1-11,43-		(show only the columns containing char 1-11 & 50 onwards, works for ls and tabular data)
+
+
+## Captured Output
+- outputs/labXX/<file1>.txt
+- outputs/labXX/<file2>.txt
+
+## Observations
+- 
+
+## Issues / Errors
+- 
+
+## Notes
+## EXAMPLES OF WHERE < IS BENEFICIAL
+
+# 1) Remove useless cat
+sort < file | uniq
+# Better: avoids extra process and pipe
+
+# 2) Filename could be mistaken for an option
+sort < "-n"
+# Better: stdin cannot be parsed as a flag
+
+# 3) Command does not accept filenames
+tr a-z A-Z < file
+# Better: only way to supply input
+
+# 4) Script stays reusable for any input source
+sort | uniq

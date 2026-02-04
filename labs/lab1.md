@@ -23,14 +23,6 @@ who                 (shows the current active sessions one for the main GUI of m
 uptime              (shows information on the current main session of your computer)
 mv oldfilename newfilename  (rename the file)
 wc -l               (word counter, -l means count lines not words)
-ls -lh		    (show sizes of files in long listing in human readable format)
-cal 12 24	    (display the calendar for Dec 2024!)
-!!		    (run the last command again)
-!-5		    (run the command thats 5th up from bottom (inclusive))
-!echo		    (run the echo command with the last argument used with it)
-env		    (list all environment variables on the system)
-export somevar 	    (turns a local variable into an environment variable)
-unset somevar	    (removes somevar from environment variables)
 
 ```
 ## Captured Output

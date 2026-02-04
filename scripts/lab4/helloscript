@@ -1,0 +1,6 @@
+#!/bin/bash
+# author: Adam McCarthy
+# version: 01/02/2026
+# program description: A program to print "Hello World!" to the console
+
+echo 'Hello, World!'

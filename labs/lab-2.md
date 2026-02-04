@@ -68,6 +68,8 @@ uname -n        (prints the name the machine you are using has been given e.g. l
 history 10      (print the last ten commands from the terminal history)
 ll              (shorthand for ls -alF, long list all files & hidden and append / (dir) * (exe) @(symlink))
 l               (shorthand for ls -CF, list contents appended / * @ (see above) and list by columns
+ls -lr          (long list all files in reverse order, alphabetically with these arguments)
+
 
 in man pages:
 H               (shows help for navigating around the pages)
@@ -97,11 +99,18 @@ info -k ssh		(search info for all mentions of ssh)
 	this returned - "(gnupg)Agent Options" -- enable-ssh-support
 info "(gnupg)Agent Options"	    (navigate to the enable-ssh-support node of the gnupg manual where 
 								enable-ssh-support is stored)
+
 ls --help 			(using --help on any command gives synopsis without leaving the command line)
 
 cd /usr/share/doc		(navigate to folder where many README.md files of various programs and system details
 						can be seen)
-
+ls -lS          (long list directory files sorting by size)
+ls -lt          (long list directory files sorting by time modified)
+ls -lR          (long list directory files recursively listing all files contained in sub directories)
+ls -lh          (long list directory files with sizes human readable)
+ls ???          (list all files that have 3 character names)
+man -k memory | less    (makes the long output into a scrollable page)
+(in less) -> f / b        (scroll down a page / scroll up a page)
 
 
 

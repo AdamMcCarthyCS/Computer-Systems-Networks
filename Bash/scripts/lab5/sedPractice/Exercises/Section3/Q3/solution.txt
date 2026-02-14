@@ -1,0 +1,1 @@
+sed -i2018_*.bkp s/copyright: 2018/copyright: 2019/ copyright.txt

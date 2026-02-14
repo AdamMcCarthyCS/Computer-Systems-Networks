@@ -1,0 +1,9 @@
+> awk '
+>   {
+>     sum += $3
+> }
+> END {
+>       print "Total:", sum
+> }
+> ' sumData.txt
+Total: 306

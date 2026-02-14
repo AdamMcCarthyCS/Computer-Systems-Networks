@@ -1,0 +1,12 @@
+employeeId,firstName,lastName,department,role,salary
+101,Frank,Smith,Sales,Manager,5000
+102,Caroline,Jones,Technology,Developer,5500
+103,Mary,Johnson,Technology,SysAdmin,7000
+104,Roseann,Brown,Marketing,Manager,9500
+105,Eamonn,Davis,Technology,DBA,7000
+106,Colm,Murphy,Technology,SysAdmin,4500
+107,Adam,Wilson,Development,Engineer,12000
+108,Katherine,Moore,Technology,Dev,6000
+109,Catherine,Taylor,Technology,Dev,4500
+110,John,Anderson,HR,Recruiter,4800
+

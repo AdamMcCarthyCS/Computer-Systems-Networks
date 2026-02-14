@@ -1,0 +1,17 @@
+> awk '
+>   BEGIN {
+>   OFS="-"
+>   }
+>   {
+>     print $2, $3
+>   }
+> ' employee.txt
+Frank-Manager
+Caroline-Developer
+Mary-SysAdmin
+Roseann-Manager
+Eamonn-DBA
+Colm-SysAdmin
+Adam-Engineer
+Katherine-Dev
+catherine-Dev

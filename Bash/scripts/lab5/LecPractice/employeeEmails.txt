@@ -1,0 +1,14 @@
+employeeId,firstName,lastName,department,role,salary,email
+101,Frank,Smith,Sales,Manager,5000,frank.smith@example.com
+102,Caroline,Jones,Technology,Developer,5500,caroline.jones@example.com
+103,Mary,Johnson,Technology,SysAdmin,7000,mary.johnson@example.com
+104,Roseann,Brown,Marketing,Manager,9500,roseann.brown@example.com
+105,Eamonn,Davis,Technology,DBA,7000,eamonn.davis@example.com
+106,Colm,Murphy,Technology,SysAdmin,4500,colm.murphy@example.com
+107,Adam,Wilson,Development,Engineer,12000,adam.wilson@example.com
+108,Katherine,Moore,Technology,Dev,6000,katherine.moore@example.com
+109,Catherine,Taylor,Technology,Dev,4500,catherine.taylor@example.com
+110,John,Anderson,HR,Recruiter,4800,john.anderson@example.com
+111,Frank,White,Marketing,SalesRep,5200,frank.white@example.com
+112,Mary,Lee,Sales,Associate,4700,mary.lee@example.com
+

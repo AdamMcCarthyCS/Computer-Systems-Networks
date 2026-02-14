@@ -1,0 +1,11 @@
+ awk '{if ($2=="Eamonn" && $3=="DBA") {print $0} {print NR,"Not Found!"}}' employee.txt
+1 Not Found!
+2 Not Found!
+3 Not Found!
+4 Not Found!
+500 Eamonn DBA Technology $7000
+5 Not Found!
+6 Not Found!
+7 Not Found!
+8 Not Found!
+9 Not Found!

@@ -1,0 +1,11 @@
+> awk '{print NR, $0}' employee.txt
+
+1 300 Frank Manager Sales $5000
+2 400 Caroline Developer Technology $5500
+3 100 Mary SysAdmin Technology $7000
+4 200 Roseann Manager Marketing $9500
+5 500 Eamonn DBA Technology $7000
+6 600 Colm SysAdmin Technology $4500
+7 700 Adam Engineer Developer $12000
+8 666 Katherine Dev Tech $6000
+9 999 Catherine Dev Tech $4500

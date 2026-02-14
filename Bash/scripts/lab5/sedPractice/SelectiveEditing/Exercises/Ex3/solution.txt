@@ -1,0 +1,1 @@
+sed -n 's/sunny/not sunny/p; s/funny/not funny/p' addr.txt 

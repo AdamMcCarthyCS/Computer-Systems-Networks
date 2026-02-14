@@ -1,0 +1,1 @@
+mkdir -p bkp && sed -ibkp/* s/I like // pets.txt

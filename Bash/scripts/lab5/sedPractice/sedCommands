@@ -1,0 +1,152 @@
+sed 's/oldWord/newWord/'         (swap first occurance on each line)
+sed 's/oldWrod/newWord/g'        (swap all occurances on each line)
+sed 'y/chars/abcd/'              (map individual chars to corresponding chars)
+
+IN PLACE FILE EDITING
+sed -i.bkp '/oldWord/newWord/' file.txt     (make in-place changes into file, no backup)
+sed -i.orig 's/oldWord/newWord/' file1.txt file2.txt   (write the changes for multiple files with backups)
+sed -i 's/oldWord/newWord/' file1.txt   (make in place replacement, no backup)
+sed -i'Backups/orig.*' 's/oldWord/newWord/' file.txt  (make in place replacement and save a backup to
+    the folder Backups named orig.file.txt'
+
+SELECTIVE EDITING BASED ON CONTENTS
+sed '/2/s/,/-/g' file.txt       (change all ',' to '-' in lines that contain 2)
+sed '/2/! s/,/-/g' file.txt     (change all ',' to '-' in lines that DONT contain 2)
+sed '/at/d' file.txt            (remove all lines containing 'at' from file.txt)
+sed '/at/!d' file.txt           (remove all lines NOT containing at from file.txt)
+sed '!d' file.txt               (equivalent to cat file.txt)
+sed -n '/searchTerm/p' file     (prints only the lines including the search term)
+sed -n 's/orig/replacement/gp' file.txt   (print only lines where word was replaced everywhere)
+sed -n '/word/!p'               (print every line except those containing the word)
+printf 'hello\nworld\n' | sed 'p'   (duplicate every line)
+sed '/searchTerm/q' file.txt    (prints everything up to first occurance of serachterm then quits)
+sed '/searchTerm/Q' file.txt    (same as above but doesnt print line where searhterm was found)
+sed '/searchTerm/q' file.txt | tac  (prints all lines up to sear word in reverse order)
+sed -n 'p; s/word/newWord/p' file.txt   (multiple commands: print all lines plus modified lines)
+sed -n 'p
+      > s/word/newWord/p' file.txt      (alternate syntax using newline character for command above)
+sed -n '/the/ s/ark/ARK/gp
+> s/warm/cool/gp
+> s/Bread/Cake/gp
+> ' rhymes.txt                  (here each command runs in order on each line, the second command use                                 the output from the first command and so on for the third etc., at                                  the end the output of all the commands run in order on all lines is
+                                printed)
+sed '/e/{s/s/*/g; s/t/*/g}'     (for any line containing e replace s with * then on that replace t                                    with *)
+sed -n '/ark/{/play/p}' rhymes.txt (and condition syntax - must use braces ark and play then print)
+sed -n '/the{/for/{/urn/p}}'    (print any line with the AND for AND urn only)
+sed -n '/for/{/sky/!p}' rhymes.txt  (print any lines with for and NOT sky)
+sed -n '3p' file.txt            (print the third line of the text) like 'head -n3 | tail -n1'
+sed -n '2p; 6p' file.txt        (print lines 2 and 6 from file.txt)
+sed -n 2000{p; q} file.txt      (find line 2000 before running print and quit to save time)
+sed '5q' file.txt               (print first five lines, like head -n5)
+grep -n 'the' file.txt          (GREP: prints line and line number of matches)
+sed -n '/the/=' rhymes.txt      (shows just line numbers of matches, = suffix does this)
+cat -n file                     (display file with line numbers)
+sed -n '3,8p' file.txt          (print lines 3-8 inclusive)
+sed '3,8d' file.txt             (print all lines excpet 3-8 of file.txt)
+sed -n '6/someWord/p' file.txt    (print from line 6 to the one containing "utter" inclusive)
+sed -n '6,$p' file.txt          (print all lines from line 6 to the end inclusive)
+sed -n '/match/,/NoMatch/p' file.txt    (everything from match to end prints if second doesnt match)
+sed -n '/to/,+1p' rhymes.txt    (print the line with the match and the next line also)
+sed -n '6,+2p' rhymes.txt       (print line 6 and the next two lines also)
+sed -n '1~3p' rhymes.txt        (print first line and every third line after that)
+sed -n '1~3{=; p}' rhymes.txt   (same as above but print line numbers also)
+sed '/t/{n; s/t/TTT/g}'         (if a line contains t replace pattern space w next line then s/t/TTT)
+seq 7 | sed 'N; s/\n/:/'        (add the next line to current pattern space and replace /n with :)
+printf 'gates\nnot\nused\n' | sed '{N; s/s\nnot/d/}  (add next line and replace s/nnot with d)
+
+REGEX (BASIC AND EXTENDED)
+==========================
+[The ^ metacharacter restricts match to start of line]
+[The $ metacharacter restricts match to end of line]
+LINE ANCHORS
+sed -n '/^s/p' anchors.txt      (find all lines starting with 's')
+sed -n '/rt$/p' anchors.txt     (find all lines ending with 'rt')
+sed 's/^par$/PAR/'              (change only the line 'par' to 'PAR')
+Note: Duplicates only arise when you use the /p (print character)
+sed 's/^/*/'                    (insert * at the beginning of every line)
+sed '/ /! s/$/./'               (append '.' if a line doesnt contain any spaces)
+WORD ANCHORS
+**The escape sequence \b denotes a word boundary. This works for both the start of word and the end of word anchoring.**
+**Word boundaries are at first/last character, number, or underscore**
+sed -n '/\bpar/p' anchors.txt   (print lines with words that start with par)
+sed -n '/par\b/p' anchors.txt   (print lines with words that end with par)
+sed 's/\bpar\b/PAR/' anchors.txt  (replace only word 'par' in the text)
+sed -n 's/\bpar\b/***/p' anchors.txt    (replace and print only lines with word 'par')
+sed -n '/\Bpar\B/p' anchors.txt (print lines where 'par' is surrounded by chars only)
+sed -n '/\Bpar/p' anchors.txt   (print lines that contain 'par' but NOT as start of a word)
+sed -n '/par\B/p' anchors.txt   (print lines that contain 'par' but NOT at the end of a word)
+printf 'alphanumeric\n' | sed 's/\b/:/g'  (add a ':' at every word boundary)
+printf 'alphanumeric' | sed 's/\B/:/g'    (anywhere there is NOT a word boundary (inside) add :)
+ALTERNATION BETWEEN OPTIONS
+sed -n '/two\|sub/p' anchors.txt  (print lines containing 'two' or 'sub' Basic regex with escape)
+sed -nE '/two|sub/p' anchors.txt  (print same lines with extended regex, no escape)
+sed -E 's/cat|dog|fox/--/g'   (replace any occurance of 'cat', 'dog', or, 'fox' in a line with --)
+sed -nE '/\bpar\b|s$/p' anchors.txt       (lines with the whole word 'par' or ending with 's')
+NOTE: The alternative which matches earliest in the input gets precedence.
+printf 'cats dog bee parrot\n' | sed -E 's/dog|parrot|at/--/'
+printf 'cats dog bee parrot\n' | sed -E 's/dog|parrot|at/--/'
+(both above give the same c--t dog bee parrot)
+Note: If the matches start from the same place the longest match gets precedence
+printf 'understanding\n' | sed -E 's/under|understanding|understand/--/' (replace longest with --)
+GROUPING SIMILAR WORDS 
+When what you want to match shares letter you can group them using a pair of parentheses metacharacters. Similar to a(b+c)d = abd+acd in maths, you get a(b|c)d = abd|acd in regular expressions.  printf 'red\nreform\nread\ncrest\n' | sed -nE '/reform|rest/p'    (print lines with reform/rest)
+printf 'red\nreform\nread\ncrest\n' | sed -nE '/re(st|form)/p'    (print same lines with grouping)
+sed -nE '/\bpar(|t)\b/p' anchors.txt      (print lines containing words 'par'/'part' with grouping)
+MATCHING THE METACHARACTERS
+NOTE: To match the metacharacters literally, i.e. to remove their special meaning, prefix those characters with a \ character.
+printf 'a^2 + b^2 - c*3\nd = c^2\n' | sed -n '/b^2/p' (line anchors not in usual place dont matter)
+printf '$a + $b = $c\n$x = 4' | sed -n '/$b/p'        (another example, anchor char doesnt matter)
+printf '(a/b) + c\n3 + (a/b) - c\n' | sed -n '/^(a\/b)/p' (escaping a forward slash in basic regex)
+printf '(a/b) + c\n3 + (a/b) - c\n' | sed -nE '/^\(a\/b\)/p' (escaping slash/bracket extended regex)
+USING DIFFERENT DELIMITERS
+The / character is idiomatically used as the REGEXP delimiter. But any character other than \ and the newline character can be used instead. The syntax is simple for substitution and transliteration commands, just use a different character instead of /.
+printf 'some text here\n' | sed -n 's# text#thing#p'  (using the # as the delimeter instead of /)
+printf 'some text here\n' | sed -n 's* text*thing*p'  (same idea as above)
+echo 'a/b/c/d' | sed 'y,a/d,1-4,' (used in place of echo 'a/b/c/d' | sed 'y/a\/d/1-4/')
+Note: For address matching, syntax is a bit different — the first delimiter has to be escaped. 
+printf '/home/joe/1\n/home/john/1\n' | sed -n '\@joe@p'   (here im using @ for the delimeter)
+THE DOT META CHARACTER
+The dot metacharacter serves as a placeholder to match any character (including the newline character).
+echo 'tac tin cot abc:tyz excited' | sed 's/c.t/-/g'    (using the dot metacharacter for differences)
+printf '42\t3500\n' | sed 's/.3.//'         (shows how . can represent a tab \t character also)
+QUANTIFIERS
+NOTE:Alternation helps you match one among multiple patterns. Combining the dot metacharacter with quantifiers (and alternation if needed) paves a way to perform logical AND between patterns.
+NOTE:First up, the ? metacharacter which quantifies a character or group to match 0 or 1 times. 
+echo 'fed fold fe:d feeder' | sed -E 's/\bfe.?d\b/X/g' (using the ? metachar to isolate different wd)
+sed -nE '/\bpart?\b/p' anchors.txt    (print lines with par/part in them using extended regex ?)
+echo 'par part parrot parent' | sed -E 's/par(ro)?t/X/g' (use extended regex to select two words)
+echo 'par part parrot parent' | sed -E 's/par(ro|en)?t/X/g' (replace several words with (),? exreg)
+echo 'apple \< fig ice < apple cream <' | sed -E 's/(\\)?</\\</g' (make all \< and escape \'s)
+NOTE: The * metacharacter quantifies a character or group to match 0 or more times.
+echo 'fd fed fod fe:d feeeeder' | sed 's/fe*d/X/g' (f followed by 0 or more e's followed by d)
+echo '3111111111111125111142' | sed -E 's/1+4?2/-/g' (one or more 1's, optional 4, then 2 replaced -)
+NOTE: You can specify a range of integer numbers, both bounded and unbounded, using {} metacharacters. There are four ways to do this {m}, {m,} {,n}, {m,n}.
+echo 'ab abbba abbbba abbbbbba' | sed -E 's/ab{2,4}a/X/g' (replace ab(2-4 times)a by X using range)
+NOTE: With ERE, you have escape { to represent it literally. Unlike ), you don't have to escape the } character.
+echo 'report_{a,b}.txt' | sed -E 's/\{a,b}/c/'  (escape the range character { )
+CONDITIONAL AND
+NOTE: Construct AND conditional using the dot metacharacter and quantifier.
+echo 'Error: not a valid input' | sed -n '/Error.*valid/p'  (Error and followed by valid using .*)
+echo 'two dogs and a cat' | sed -E 's/cat.*dog|dog.*cat/pets/' (cat + dog in any order, needs altern)
+echo '12313213helloworld!' | sed -E 's/(1|2|3)+hello/X/' (the + beside an alternation-do until fails)
+LONGEST MATCH WINS
+echo 'car bat cod map scat dot abacus' | sed 's/.*b/-/' (start of line to last b replaced by -)
+echo 'car bat cod map scat dot abacus' | sed 's/t.*u/-/' (first t in the line to last u, rep by -)
+
+CHARACTER CLASSES
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

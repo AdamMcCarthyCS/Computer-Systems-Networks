@@ -1,0 +1,21 @@
+Code	Status	Value	Notes
+A001	ok	42	processed successfully
+A002	Error	ERROR	invalid input
+A003	ok	17	processed successfully
+A004	eRrOr	0	Error
+A005	ok	99	queued
+A006	ok	error	Timeout
+A007	ERROR	eRrOr	upstream failure
+A008	ok	55	processed successfully
+A009	Error	12	retry scheduled
+A010	ok	error	partial result
+A011	eRRoR	ERROR	data corruption
+A012	ok	88	completed
+A013	ERROR	0	Error during validation
+A014	ok	31	processed successfully
+A015	error	7	transient issue
+A016	ok	64	queued
+A017	ErRoR	error	timeout
+A018	ok	23	processed successfully
+A019	ERROR	91	Error reported by service
+A020	ok	100	completed

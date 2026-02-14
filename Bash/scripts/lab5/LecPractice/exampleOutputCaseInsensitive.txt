@@ -1,0 +1,19 @@
+adam@ubuntu-practice:LecPractice(●): awk '
+> BEGIN {
+> IGNORECASE = 1
+> }
+> /error/ {
+> print $0
+> }
+> ' errors.txt
+A002	Error	ERROR	invalid input
+A004	eRrOr	0	Error
+A006	ok	error	Timeout
+A007	ERROR	eRrOr	upstream failure
+A009	Error	12	retry scheduled
+A010	ok	error	partial result
+A011	eRRoR	ERROR	data corruption
+A013	ERROR	0	Error during validation
+A015	error	7	transient issue
+A017	ErRoR	error	timeout
+A019	ERROR	91	Error reported by service

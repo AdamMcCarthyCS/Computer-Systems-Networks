@@ -1,0 +1,10 @@
+> awk -F"," '
+> BEGIN {
+> FSO = " "
+> } $6 > 7000 {
+> print $1, $2, $3, $6
+> }
+> ' delimeterPractice.csv
+employeeId firstName lastName salary
+104 Roseann Brown 9500
+107 Adam Wilson 12000

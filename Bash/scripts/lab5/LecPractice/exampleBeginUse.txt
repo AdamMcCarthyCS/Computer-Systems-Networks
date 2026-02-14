@@ -1,0 +1,17 @@
+> awk '
+> BEGIN {
+>   OFS="--"
+> }
+> {
+>   print $1, $4, $5
+> }
+> ' employee.txt
+300--Sales--$5000
+400--Technology--$5500
+100--Technology--$7000
+200--Marketing--$9500
+500--Technology--$7000
+600--Technology--$4500
+700--Developer--$12000
+666--Tech--$6000
+999--Tech--$4500

@@ -1,0 +1,13 @@
+awk -F"," 'BEGIN {OFS=" "} {print $2}' employeeEmails.txt | sort | uniq
+
+Adam
+Caroline
+Catherine
+Colm
+Eamonn
+Frank
+John
+Katherine
+Mary
+Roseann
+firstName

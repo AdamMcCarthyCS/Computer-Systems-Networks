@@ -1,0 +1,9 @@
+awk 'BEGIN {
+    print "ARGC =", ARGC
+    for (i = 0; i < ARGC; i++)
+        print "ARGV[" i "] =", ARGV[i]
+}
+{
+    print "File:", FILENAME, "Line:", $0
+}' data.txt
+

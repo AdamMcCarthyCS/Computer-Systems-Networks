@@ -1,0 +1,1 @@
+sed -n '/it/,~3p' sample.txt 

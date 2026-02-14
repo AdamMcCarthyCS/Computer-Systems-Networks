@@ -1,0 +1,1 @@
+sed -n '9,/go/p' sample.txt

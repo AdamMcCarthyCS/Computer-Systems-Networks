@@ -1,0 +1,5 @@
+ls -la | awk -v OFS="\t" '/rwxrwx/ {print $1,$9}' #Note $N's must be comma separated!
+drwxrwxr-x	.
+drwxrwxr-x	..
+-rwxrwxr-x	employee.txt
+

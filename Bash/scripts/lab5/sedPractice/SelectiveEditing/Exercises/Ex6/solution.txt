@@ -1,0 +1,1 @@
+sed -n '/is/{/good/!p}' addr.txt 

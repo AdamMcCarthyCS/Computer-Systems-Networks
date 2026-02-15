@@ -1,0 +1,56 @@
+# Lab XX – <Lab Title>
+
+## Objectives
+- 
+- 
+
+## Environment 
+- OS:
+- Machine / VM:
+- Network context (if relevant):
+
+## Procedure
+arp -a 		(show all the ips and their mapped mac addresses known passively)
+sudo arp -a -d  (delete the cached values for ip-mac address)
+ifconfig	(show all network adapter data of the machine)
+ifconfig en0	(show the details for my router connection)
+ifconfig getpacket en0 (shows the DHCP packet the computer recieved) 
+netstat -nr | grep -A22 Internet: (shows network related information r-routing tables, n-as numbers, passive)
+nmap -sn 192.168.1.0/24 (ipv4=32 bits, /24 netowrk addrs, leaving 2^8=256 to scan for acitivity)
+sudo nmap -sn -PR 192.168.1.0/24 (checks every ip from 0-256 to see whos using it)
+route -n get default (get routing table info for default-router-gateway)
+networksetup -getinfo "Wi-Fi " (include the space-> lists all info about wifi network, neat)
+whoami			(print user name)
+hostname		(print machine name)
+ping #myip		(test if computer can communicate with machine at #myip)
+traceroute website/ip	(win: tracepath, shows number of hops to travel through network)
+sudo npm install -g fast-cli 	(install fast cli)
+export PUPPETEER_EXECUTABLE_PATH='path to google in applcations/google.app/macos/google'
+npx fast-cli -u		(check internet speed)
+sudo nmap -sn #myip/24	(ping all ip addresses to see if they respond show host & ip)
+To get real mac address of VM
+(vm side) ping -c 1 192.168.1.1  	(sends one packet)
+(host side) 
+sudo tcpdump -i en0 -e -n icmp
+
+sudo tcpdump -i en0 -e -n icmp
+	-i en0 → capture on your Mac’s physical interface
+	-e → show the Ethernet header (source and destination MACs)
+	-n → don’t resolve IPs to hostnames
+	icmp → filter only ping packets 
+
+## Captured Output
+- outputs/labXX/<file1>.txt
+- outputs/labXX/<file2>.txt
+
+## Observations
+- 
+
+## Issues / Errors
+- 
+
+## Notes
+- 
+
+## Conclusion
+-

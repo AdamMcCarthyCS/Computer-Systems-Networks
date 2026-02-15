@@ -1,0 +1,17 @@
+Exactly — that’s the right way to think about it.
+
+When the VM is sending to anything **outside the host Mac**:
+
+* The VM has its own virtual NIC and MAC internally.
+* But that NIC can’t always put frames directly onto the Mac’s physical network.
+* UTM acts like a **software bridge/switch**, so the MAC that actually goes out onto the LAN is the one **assigned or handled by UTM**, not necessarily the VM’s internal MAC.
+
+So on your Mac’s Wireshark capture:
+
+* If the packet is going to the **host itself**, the VM’s MAC is preserved.
+* If the packet is going to an **external device**, the MAC you see is **UTM’s “on-wire” MAC**, which represents the VM to the rest of the network.
+
+It’s a subtle distinction between **logical VM MAC** vs **actual on-wire MAC**, and labs that ask about “source MAC” usually mean **what’s physically on the wire**, which is UTM’s MAC when going outside.
+
+This is why your ping to the router showed a different source MAC than your VM’s `ifconfig` MAC.
+

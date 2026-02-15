@@ -1,0 +1,24 @@
+--- google.ie ping statistics ---
+1 packets transmitted, 1 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 8.555/8.555/8.555/0.000 ms
+adammccarthy@MacBookAir (Outputs): ping -c 1 setu.ie
+PING setu.ie (104.20.19.132): 56 data bytes
+64 bytes from 104.20.19.132: icmp_seq=0 ttl=57 time=90.675 ms
+
+--- setu.ie ping statistics ---
+1 packets transmitted, 1 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 90.675/90.675/90.675/nan ms
+adammccarthy@MacBookAir (Outputs): ping -c 1 cisco.com
+PING cisco.com (72.163.4.185): 56 data bytes
+64 bytes from 72.163.4.185: icmp_seq=0 ttl=47 time=120.585 ms
+
+--- cisco.com ping statistics ---
+1 packets transmitted, 1 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 120.585/120.585/120.585/nan ms
+adammccarthy@MacBookAir (Outputs): ifconfig en0
+en0: flags=8b63<UP,BROADCAST,SMART,RUNNING,PROMISC,ALLMULTI,SIMPLEX,MULTICAST> mtu 1500
+	options=6460<TSO4,TSO6,CHANNEL_IO,PARTIAL_CSUM,ZEROINVERT_CSUM>
+	ether 92:fd:44:66:5e:a4
+	inet 192.168.1.2 netmask 0xffffff00 broadcast 192.168.1.255
+	media: autoselect
+	status: active

@@ -1,0 +1,9 @@
+enp0s1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000 link/ether d6:4e:c8:4a:e6:bb brd ff:ff:ff:ff:ff:ff inet 192.168.1.22/24 brd 192.168.1.255 scope global dynamic enp0s1 valid_lft 85698sec preferred_lft 85698sec inet6 fe80::d44e:c8ff:fe4a:e6bb/64 scope link valid_lft forever preferred_lft foreve
+
+VM network adapter name:  enp0s1
+VM network ip: 192.168.1.22
+
+How was that assigned?
+It is assigned from the DHCP pool, often a number between 192.168.(100 - 200)
+
+

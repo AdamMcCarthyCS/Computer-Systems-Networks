@@ -1,0 +1,112 @@
+Scan your lan:
+
+NMAP (on MAC):
+adammccarthy@MacBook-Air (Outputs): sudo nmap -sn 192.168.1.0/24
+Password:
+Starting Nmap 7.94 ( https://nmap.org ) at 2026-02-15 13:22 GMT
+Nmap scan report for www.adsl.vf (192.168.1.1)
+Host is up (0.0029s latency).
+MAC Address: 0C:67:14:58:F6:6E (Unknown)
+Nmap scan report for 192.168.1.6
+Host is up (0.070s latency).
+MAC Address: 1E:01:8A:69:0F:CF (Unknown)
+Nmap scan report for 192.168.1.19
+Host is up (0.075s latency).
+MAC Address: 62:F8:15:36:97:AB (Unknown)
+Nmap scan report for MacBookAir.station (192.168.1.2)
+Host is up.
+Nmap done: 256 IP addresses (4 hosts up) scanned in 2.69 seconds
+
+NMAP (on VM):
+
+[root@alarm /]# nmap -sn 192.168.1.0/24
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-02-15 13:42 +0000
+Nmap scan report for www.adsl.vf (192.168.1.1)
+Host is up (0.0061s latency).
+MAC Address: 0C:67:14:58:F6:6E (Sernet (Suzhou) Technologies)
+Nmap scan report for MacBookAir.station (192.168.1.2)
+Host is up (0.00034s latency).
+MAC Address: 92:FD:44:66:5E:A4 (Unknown)
+Nmap scan report for 192.168.1.6
+Host is up (0.11s latency).
+MAC Address: 1E:01:8A:69:0F:CF (Unknown)
+Nmap scan report for 192.168.1.19
+Host is up (0.092s latency).
+MAC Address: 62:F8:15:36:97:AB (Unknown)
+Nmap scan report for alarm.station (192.168.1.23)
+Host is up.
+Nmap done: 256 IP addresses (5 hosts up) scanned in 4.17 seconds
+
+[root@alarm /]# nmap -O 192.168.1.0/24
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-02-15 13:44 +0000
+Nmap scan report for www.adsl.vf (192.168.1.1)
+Host is up (0.0072s latency).
+Not shown: 988 closed tcp ports (reset)
+PORT     STATE    SERVICE
+21/tcp   filtered ftp
+22/tcp   filtered ssh
+23/tcp   filtered telnet
+53/tcp   open     domain
+80/tcp   open     http
+443/tcp  open     https
+515/tcp  filtered printer
+631/tcp  filtered ipp
+990/tcp  filtered ftps
+6699/tcp open     napster
+8081/tcp filtered blackice-icecap
+9100/tcp filtered jetdirect
+MAC Address: 0C:67:14:58:F6:6E (Sernet (Suzhou) Technologies)
+Device type: general purpose
+Running: Linux 3.X|4.X
+OS CPE: cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4
+OS details: Linux 3.10 - 4.11
+Network Distance: 1 hop
+
+Nmap scan report for MacBookAir.station (192.168.1.2)
+Host is up (0.00092s latency).
+Not shown: 995 closed tcp ports (reset)
+PORT      STATE    SERVICE
+5000/tcp  open     upnp
+6881/tcp  open     bittorrent-tracker
+7000/tcp  open     afs3-fileserver
+49152/tcp open     unknown
+49156/tcp filtered unknown
+MAC Address: 92:FD:44:66:5E:A4 (Unknown)
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.98%E=4%D=2/15%OT=5000%CT=1%CU=37076%PV=Y%DS=1%DC=D%G=Y%M=92FD44
+OS:%TM=6991CDEC%P=aarch64-unknown-linux-gnu)SEQ(SP=100%GCD=2%ISR=104%TI=Z%C
+OS:I=RD%II=RI%TS=21)SEQ(SP=100%GCD=2%ISR=10C%TI=Z%CI=RD%II=RI%TS=21)SEQ(SP=
+OS:103%GCD=1%ISR=108%TI=Z%CI=RD%II=RI%TS=22)SEQ(SP=104%GCD=1%ISR=10C%TI=Z%C
+OS:I=RD%II=RI%TS=21)SEQ(SP=105%GCD=2%ISR=10C%TI=Z%CI=RD%II=RI%TS=21)OPS(O1=
+OS:M5B4NW6NNT11SLL%O2=M5B4NW6NNT11SLL%O3=M5B4NW6NNT11%O4=M5B4NW6NNT11SLL%O5
+OS:=M5B4NW6NNT11SLL%O6=M5B4NNT11SLL)WIN(W1=FFFF%W2=FFFF%W3=FFFF%W4=FFFF%W5=
+OS:FFFF%W6=FFFF)ECN(R=Y%DF=Y%T=40%W=FFFF%O=M5B4NW6SLL%CC=Y%Q=)T1(R=Y%DF=Y%T
+OS:=40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=N)T5(R=Y%DF=N%T=40%W=0%S=Z%
+OS:A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%
+OS:DF=N%T=40%W=0%S=Z%A=S%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%IPL=38%UN=0%RIPL=
+OS:G%RID=G%RIPCK=G%RUCK=0%RUD=G)IE(R=Y%DFI=S%T=40%CD=S)
+
+Network Distance: 1 hop
+
+Nmap scan report for alarm.station (192.168.1.23)
+Host is up (0.00010s latency).
+Not shown: 999 filtered tcp ports (no-response)
+PORT   STATE SERVICE
+22/tcp open  ssh
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Linux 2.6.X|5.X
+OS CPE: cpe:/o:linux:linux_kernel:2.6.32 cpe:/o:linux:linux_kernel:5 cpe:/o:linux:linux_kernel:6
+OS details: Linux 2.6.32, Linux 5.0 - 6.2
+Network Distance: 0 hops
+
+OS detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 256 IP addresses (3 hosts up) scanned in 30.15 seconds
+[root@alarm /]# [  930.227522] kauditd_printk_skb: 83 callbacks suppressed
+[  930.227540] audit: type=1130 audit(1771163304.366:134): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=systemd-tmpfiles-clean com
+m="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+[  930.238548] audit: type=1131 audit(1771163304.367:135): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=systemd-tmpfiles-clean com
+m="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+
+

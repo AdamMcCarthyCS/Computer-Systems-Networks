@@ -1,0 +1,21 @@
+traceroute to visitcanberra.com.au
+
+adammccarthy@MacBook-Air (Outputs): traceroute 104.26.1.244
+traceroute to 104.26.1.244 (104.26.1.244), 64 hops max, 40 byte packets
+ 1  www.adsl.vf (192.168.1.1)  10.521 ms  2.844 ms  2.735 ms
+ 2  10.8.17.1 (10.8.17.1)  7.863 ms  6.983 ms  6.944 ms
+ 3  89.19.85.152 (89.19.85.152)  6.740 ms  7.671 ms  10.055 ms
+ 4  ae4-111-xcr1.dcw.cw.net (195.2.21.233)  7.441 ms  7.266 ms  42.173 ms
+ 5  ae25-xcr1.ltw.cw.net (195.2.3.129)  15.888 ms  15.963 ms  16.021 ms
+ 6  cloudflare-gw-xcr1.ltw.cw.net (195.2.29.90)  26.835 ms  16.941 ms *
+ 7  141.101.71.137 (141.101.71.137)  18.813 ms
+    141.101.71.119 (141.101.71.119)  17.944 ms  17.477 ms
+ 8  104.26.1.244 (104.26.1.244)  17.333 ms  17.617 ms  16.874 ms
+
+Test internet speed:
+
+Had to set: export PUPPETEER_EXECUTABLE_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+adammccarthy@MacBook-Air (Outputs): npx fast-cli -u
+
+
+    86 Mbps ↓ / 50 Mbps ↑
